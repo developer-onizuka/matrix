@@ -3,18 +3,25 @@
 #include <omp.h>
 
 #define N 1024
+#define NUM_THREADS 4
 
 void vector_matrix(int *x, int *y, int *z, int n) {
-	for (unsigned int col_idx=0; col_idx<n; col_idx++) {
+	for (unsigned int col_idx=0; col_idx<n; col_idx++) { 
 		for (unsigned int row_idx=0; row_idx<n; row_idx++) {
-			unsigned int scan_idx;
-			int ans=0;
-			#pragma omp parralel for reduction(+:ans)
-			{
+			int ans[NUM_THREADS] = {0};
+			omp_set_num_threads(NUM_THREADS);
+			#pragma omp parallel
+			{	unsigned int scan_idx;
+				int id;
+				id = omp_get_thread_num();
+				/* printf("id:%d\n",id); */
+			#pragma omp for
 				for (scan_idx=0; scan_idx<n; scan_idx++) {
-					ans += x[col_idx * n + scan_idx] * y[scan_idx * n + row_idx];
+					ans[id] += x[col_idx * n + scan_idx] * y[scan_idx * n + row_idx];
 				}
-				z[col_idx * n + row_idx] = ans;
+			}
+			for(int i=0; i<NUM_THREADS; i++) { 
+				z[col_idx * n + row_idx] += ans[i];
 			}
 		}
 	}
