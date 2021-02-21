@@ -68,9 +68,9 @@ int main(int argc, char *argv[])
 				matrixC[col_idx * n + row_idx] = 0;
 			}
 		}
-        	fpa = fopen("./matrix_a.bin", "wr");
-        	fpb = fopen("./matrix_b.bin", "wr");
-        	fpc = fopen("./matrix_c.bin", "wr");
+        	fpa = fopen("./matrix_a.bin", "w");
+        	fpb = fopen("./matrix_b.bin", "w");
+        	fpc = fopen("./matrix_c.bin", "w");
         	fwrite(matrixA, sizeof(int), n*n, fpa);
         	fwrite(matrixB, sizeof(int), n*n, fpb);
         	fwrite(matrixC, sizeof(int), n*n, fpc);
