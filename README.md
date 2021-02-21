@@ -1,9 +1,9 @@
 ```
 $ time ./matrix.o 1024
 
-real	0m19.293s
-user	0m19.277s
-sys	0m0.013s
+real	0m9.438s
+user	0m9.408s
+sys	0m0.012s
 
 $ od -i matrix_a.bin
 0000000           1           1           1           1
