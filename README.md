@@ -45,6 +45,13 @@ $ od -i matrix_c.bin
 ```
 
 ```
+<Quadro P620>
+$ time ./matrix.co 1024
+
+real    0m0.332s
+user    0m0.116s
+sys     0m0.154s
+
 <Quadro P400>
 $ time ./matrix.co 1024
 
