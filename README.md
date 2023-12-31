@@ -26,7 +26,7 @@ $ time ./matrix_omp.o 1024
 
 real	0m2.700s
 user	0m10.163s
-sys	 0m0.481s
+sys	0m0.481s
 
 $ od -i matrix_a.bin 
 0000000           1           1           1           1
@@ -94,7 +94,7 @@ $ time ./matrix_gds.co 1024
 
 real	0m1.827s
 user	0m0.320s
-sys	 0m0.156s
+sys	0m0.156s
 
 $ od -i matrix_a.bin
 0000000           1           1           1           1
