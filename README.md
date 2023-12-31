@@ -64,14 +64,14 @@ $ time ./matrix.co 1024
 
 real	0m0.424s
 user	0m0.282s
-sys	  0m0.093s
+sys 0m0.093s
 
 <Quadro K1200>
 $ time ./matrix.co 1024
 
 real	0m0.232s
 user	0m0.169s
-sys	  0m0.053s
+sys 0m0.053s
 
 $ od -i matrix_a.bin
 0000000           1           1           1           1
